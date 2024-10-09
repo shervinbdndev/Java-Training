@@ -1,26 +1,19 @@
-import java.io.*;
+import java.util.Arrays;
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
-        Person person = new Person("shervin", "badanara", "a54687as5463");
 
-        final Object deserializedObj;
+        ArrayList<String> myArr = new ArrayList<>();
 
-        ByteArrayOutputStream output = new ByteArrayOutputStream();
+        String[] initializedArr = {"H", "e", "l", "l"};
 
-        try {
-            ObjectOutputStream objOut = new ObjectOutputStream(output);
-            objOut.writeObject(person);
+        myArr.addAll(Arrays.asList(initializedArr));
 
-            ObjectInputStream objIn = new ObjectInputStream(new ByteArrayInputStream(output.toByteArray()));
-            deserializedObj = objIn.readObject();
-            System.out.println(deserializedObj);
+        myArr.add("o");
 
-        } catch (IOException ioe) {
-            System.out.println(ioe);
-        } catch (Exception ex) {
-            System.out.println(ex);
-        }
+        System.out.println(myArr);
 
+        System.out.println(String.join("", myArr));
     }
 }
